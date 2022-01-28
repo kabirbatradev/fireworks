@@ -18,7 +18,7 @@ function setup() {
 }
 
 function draw() {
-  background(7, 11, 52, 50);
+  background(7, 11, 52, 20);
 
   // fill("red");
   // ellipse(mouseX, mouseY, 20, 20);

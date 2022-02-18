@@ -18,7 +18,7 @@ function setup() {
 }
 
 function draw() {
-  background(7, 11, 52, 5);
+  background(7, 11, 52, 30);
 
   // fill("red");
   // ellipse(mouseX, mouseY, 20, 20);
@@ -48,9 +48,17 @@ function draw() {
     last = millis();
     x = random(width/6, 5*width/6);
     y = random(height/6, 5*height/6);
-    fireworks.push(new Firework(x, y));
-    fireworks.push(new Firework(x, y));
-    fireworks.push(new Firework(x, y));
+    
+    let heartChance = floor(random(10));
+    if (heartChance == 0) {
+      fireworks.push(new FireworkHeart(x, y));
+    }
+    else {
+      fireworks.push(new Firework(x, y));
+      fireworks.push(new Firework(x, y));
+      fireworks.push(new Firework(x, y));
+    }
+    
   }
 }
 

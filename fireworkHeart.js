@@ -1,6 +1,6 @@
 
 
-class Firework {
+class FireworkHeart {
 
 
   constructor(x, y) {
@@ -21,7 +21,7 @@ class Firework {
 
     this.energy = 3.4;
 
-    this.numParticles = random(8, 15);
+    this.numParticles = 39;
 
     this.r = random(150, 255);
     this.g = random(150, 255);
@@ -90,10 +90,11 @@ class Firework {
 
       for (var i = 0; i < this.numParticles; i++) {
         this.particlePos.push(createVector(this.middleX, this.middleY));
-        let theta = random(0, 2*PI);
-        let thisEnergy = random(this.energy - 1, this.energy + 1);
-        this.particleVel.push(createVector(thisEnergy*cos(theta), thisEnergy*sin(theta)));
-        // this.particleVel.push(createVector(random(-this.energy, this.energy), random(-this.energy, this.energy)));
+
+        let t = map(i, 0, this.numParticles, -PI, PI);
+        let r = sin(t)*sqrt(abs(cos(t))) / (sin(t) + 7/5) - 2*sin(t) + 2;
+
+        this.particleVel.push(createVector(r*cos(t), -r*sin(t)-2));
 
       }
       soundEffect.play();

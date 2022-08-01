@@ -44,12 +44,13 @@ function draw() {
     }
   }
 
-  if (millis() > last + 400) {
+  if (millis() > last + 2000) {
     last = millis();
     x = random(width/6, 5*width/6);
     y = random(height/6, 5*height/6);
     
     let heartChance = floor(random(10));
+    heartChance = 1
     if (heartChance == 0) {
       fireworks.push(new FireworkHeart(x, y));
     }

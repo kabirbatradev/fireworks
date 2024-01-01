@@ -4,6 +4,8 @@ var last;
 
 let soundEffect;
 
+const delayBetweenFireworks = 500;
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
   noStroke();
@@ -44,7 +46,7 @@ function draw() {
     }
   }
 
-  if (millis() > last + 2000) {
+  if (millis() > last + delayBetweenFireworks) {
     last = millis();
     x = random(width/6, 5*width/6);
     y = random(height/6, 5*height/6);
